@@ -1,5 +1,7 @@
-import { Block } from "../entity/User";
+import { Blockchain } from "../models/blockchain";
 
-export const genesisBlock = new Block(22, "secret hash", true)
 
-export const secondBlock = new Block(33.4)
+export const blockchain = new Blockchain()
+
+
+
