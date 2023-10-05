@@ -1,23 +1,25 @@
 import { addBlockFactory } from "./blockFactory/blockFactory";
 import { genesisBlock } from "./blockFactory/genesis";
+import { PORT } from "./constants/port";
 import { AppDataSource } from "./data-source";
 import { Block } from "./entity/block";
 import { logger } from "./logger/logger";
-
+import { showBlockChain } from "./router/getAll";
+const express = require('express')
+const app = express()
 
 AppDataSource.initialize().then(async () => {
-    const fetch = await AppDataSource.manager.find(Block)
+    const fetch = await AppDataSource.manager.find(Block);
     if (!fetch.length) {
-        await AppDataSource.manager.save(genesisBlock)
-
+        await AppDataSource.manager.save(genesisBlock);
     }
+    //add sample starter
     await addBlockFactory(3);
-    await addBlockFactory(4.4);
-    await addBlockFactory(22.45);
-    await addBlockFactory(44.45);
-
-    console.log(await AppDataSource.manager.find(Block));
-
-}).catch(error => logger.warn(error))
+}).catch(error => logger.warn(error));
 
 
+app.use(showBlockChain)
+
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`)
+})
