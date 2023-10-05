@@ -4,10 +4,11 @@ import { PORT } from "./constants/port";
 import { AppDataSource } from "./data-source";
 import { Block } from "./entity/block";
 import { logger } from "./logger/logger";
+import { createBlockRouter } from "./router/createBlock";
 import { showBlockChain } from "./router/getAll";
 const express = require('express')
 const app = express()
-
+app.use(express.json());
 AppDataSource.initialize().then(async () => {
     const fetch = await AppDataSource.manager.find(Block);
     if (!fetch.length) {
@@ -17,7 +18,7 @@ AppDataSource.initialize().then(async () => {
     await addBlockFactory(3);
 }).catch(error => logger.warn(error));
 
-
+app.use(createBlockRouter)
 app.use(showBlockChain)
 
 app.listen(PORT, () => {
