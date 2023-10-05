@@ -1,7 +1,7 @@
 {
-   "name": "gen",
+   "name": "next-gen-coin",
    "version": "0.0.1",
-   "description": "Awesome project developed with TypeORM.",
+   "description": "Next gen coin is a simple blockchain with typescript",
    "type": "commonjs",
    "devDependencies": {
       "@types/node": "^16.11.10",
@@ -11,6 +11,7 @@
    "dependencies": {
       "crypto-js": "^4.1.1",
       "mysql2": "^3.6.1",
+      "nodemon": "^3.0.1",
       "pino": "^8.15.6",
       "pino-pretty": "^10.2.3",
       "reflect-metadata": "^0.1.13",
@@ -19,6 +20,7 @@
    },
    "scripts": {
       "start": "ts-node src/index.ts",
-      "typeorm": "typeorm-ts-node-commonjs"
+      "typeorm": "typeorm-ts-node-commonjs",
+      "dev":"nodemon src/index.ts"
    }
 }
