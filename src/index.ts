@@ -6,6 +6,8 @@ import { Block } from "./entity/block";
 import { logger } from "./logger/logger";
 import { createBlockRouter } from "./router/createBlock";
 import { showBlockChain } from "./router/getAll";
+const colors = require('colors');
+
 const express = require('express')
 const app = express()
 app.use(express.json());
@@ -22,5 +24,5 @@ app.use(createBlockRouter)
 app.use(showBlockChain)
 
 app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`)
+    console.log(colors.green(`Blockchain NGC server listening on port ${PORT}`));
 })
