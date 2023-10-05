@@ -1,6 +1,5 @@
 import { AppDataSource } from "../data-source";
 import { Block } from "../entity/block";
-import { genesisBlock } from "./genesis";
 
 export async function addBlockFactory(amount:number) {
     const currentBlockChain = await AppDataSource.manager.find(Block);
