@@ -11,6 +11,8 @@
    "dependencies": {
       "crypto-js": "^4.1.1",
       "mysql2": "^3.6.1",
+      "pino": "^8.15.6",
+      "pino-pretty": "^10.2.3",
       "reflect-metadata": "^0.1.13",
       "typeorm": "0.3.17",
       "uuid": "^9.0.1"

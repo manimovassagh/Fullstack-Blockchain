@@ -1,6 +1,5 @@
 import { SHA256 } from "crypto-js";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { AppDataSource } from "../data-source";
 
 
 @Entity()
@@ -32,7 +31,7 @@ export class Block {
         this.blockHash = this.calculateHash();
         this.unit = "Next-Gen-Coin"
     }
-    calculateHash(): any {
+    calculateHash(): string {
         return SHA256(
             this.index +
             this.previousHash
@@ -41,5 +40,10 @@ export class Block {
     }
 
 
+
+}
+
+export const createGenesisBlock=()=>{
+    return new Block(1_000_000, SHA256('Secret Hash').toString(), true)
 
 }
