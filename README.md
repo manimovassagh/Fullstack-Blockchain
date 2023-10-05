@@ -5,3 +5,4 @@ Steps to run this project:
 1. Run `npm i` command
 3. Run `npm run start` command
 4. Run `npm run dev` to start with nodemon if you prefer
+4. Frontend part ....
