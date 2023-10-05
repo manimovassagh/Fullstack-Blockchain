@@ -38,12 +38,4 @@ export class Block {
             + this.timestamp
             + String(this.amount)).toString();
     }
-
-
-
-}
-
-export const createGenesisBlock=()=>{
-    return new Block(1_000_000, SHA256('Secret Hash').toString(), true)
-
 }

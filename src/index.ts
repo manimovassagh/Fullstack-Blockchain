@@ -6,8 +6,11 @@ import { logger } from "./logger/logger";
 
 
 AppDataSource.initialize().then(async () => {
+    const fetch = await AppDataSource.manager.find(Block)
+    if (!fetch.length) {
+        await AppDataSource.manager.save(genesisBlock)
 
-    await AppDataSource.manager.save(genesisBlock)
+    }
     await addBlockFactory(3);
     await addBlockFactory(4.4);
     await addBlockFactory(22.45);
