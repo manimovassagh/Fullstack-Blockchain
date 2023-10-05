@@ -1,5 +1,6 @@
 import { SHA256 } from "crypto-js";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { AppDataSource } from "../data-source";
 
 
 @Entity()
@@ -38,5 +39,7 @@ export class Block {
             + this.timestamp
             + String(this.amount)).toString();
     }
+
+
 
 }

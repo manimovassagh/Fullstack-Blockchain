@@ -1,5 +1,6 @@
 
-import { Block } from "../entity/User";
+import { Block } from "../entity/block";
+
 
 
 
@@ -12,14 +13,14 @@ export class Blockchain {
 
 
     private createGenesisBlock(): Block {
-        return new Block(1_000_000,
-            "'61a7ba410806a3a17", true)
+        return new Block(1_000_000, 'Secret Hash', true)
     }
 
-    private getLastBlock(): Block {
+    private  getLastBlock(): Block {
         return this.chain[this.chain.length - 1];
     }
-    public addBlock(newBlock: Block): void {
+    public  addBlock(newBlock: Block) {
+        
         newBlock.previousHash = this.getLastBlock().blockHash;
         newBlock.blockHash = newBlock.calculateHash();
         this.chain.push(newBlock);
