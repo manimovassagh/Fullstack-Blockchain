@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AppDataSource } from "../data-source";
+import { AppDataSource } from "../data/data-source";
 import { Block } from "../entity/block";
 
 const express = require("express")
