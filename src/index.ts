@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const colors = require('colors');
 import { genesisBlock } from "./blockFactory/genesis";
-import { PORT } from "./constants/port";
+import { PORT, SERVER_MESSAGE } from "./constants/port";
 import { AppDataSource } from "./data/data-source";
 import { Block } from "./entity/block";
 import { logger } from "./logger/logger";
@@ -26,5 +26,5 @@ app.use(createBlockRouter)
 app.use(showBlockChain)
 
 app.listen(PORT, () => {
-    console.log(colors.bgMagenta(`Next-Gen-Coin server Blockchainis running on port ${PORT}`));
+    console.log(colors.bgMagenta(`${SERVER_MESSAGE} ${PORT}`));
 })
