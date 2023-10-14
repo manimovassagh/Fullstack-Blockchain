@@ -5,7 +5,7 @@ const express = require('express');
 
 export const createBlockRouter = express.Router();
 /**
- * This
+ * This is the route for creating blocks.
  */
 createBlockRouter.post('/create', (req: Request, res: Response) => {
 
