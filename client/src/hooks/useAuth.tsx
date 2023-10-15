@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const useAuth = () => {
     const isRun = useRef(false);
 
-    const [isLogin, setLogin] = useState(true);
+    const [isLogin, setLogin] = useState(false);
 
     useEffect(() => {
         const client = new Keycloak({
