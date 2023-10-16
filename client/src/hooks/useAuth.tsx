@@ -11,7 +11,7 @@ const useAuth = () => {
         const client = new Keycloak({
             url: "http://127.0.0.1:8090",
             realm: 'myrealm',
-            clientId: 'myclient',
+            clientId: 'react',
         });
         if (isRun.current) return;
 
