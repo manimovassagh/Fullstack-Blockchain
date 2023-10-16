@@ -8,7 +8,9 @@ export const showBlockChain = express.Router()
 /**
  * get all Blocks and send to frontend
  */
-showBlockChain.get('/', async (_req: Request, res: Response) => {
+showBlockChain.get('/', async (req: Request, res: Response) => {
+    console.log("This is backend log !!!", JSON.stringify(req.headers.authorization));
+
     const fetch = await AppDataSource.manager.find(Block);
     res.json(fetch)
 })

@@ -1,25 +1,28 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { fetchBlockchainData } from '../hooks/useBlockchain';
 import useAuth from '../hooks/useAuth';
 import { Block } from '../types/Block';
 
 export default function Blockchain() {
   const [blockchainData, setBlockchainData] = useState([]);
   const isLogin = useAuth()
-  console.log(blockchainData);
+
+
 
   useEffect(() => {
-    // Fetch the blockchain data when the component mounts
     async function fetchData() {
-      const data = await fetchBlockchainData();
-      if (data) {
-        setBlockchainData(data);
-      }
+      await axios.get('http://localhost:8080')
+        .then((blocks) => {
+          setBlockchainData(blocks.data)
+          
+
+        }).catch((err) => {
+          console.log(err)
+        })
     }
 
     fetchData();
   }, []);
-  console.log(blockchainData);
 
 
   return (
