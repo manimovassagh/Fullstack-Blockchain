@@ -18,8 +18,6 @@ const useAuth = () => {
         client
             .init({ onLoad: "login-required" })
             .then((res) => {
-
-
                 localStorage.setItem("token", client.token as string)
                 setToken(client.token as string)
                 setLogin(res);
